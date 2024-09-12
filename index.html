@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <style>
+        .box{
+            padding:100px 0;
+            width: 400px;
+            text-align:center;
+            background: #ddd;
+            margin:20px;
+            display: inline-block;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Vue.js 3</h1>
+    
+    <div id="app">
+        <h1>{{title}} - {{age}}</h1>
+
+        <!-- <button v-on:click="age++">Increase age</button> -->
+        <!-- <button v-on:click="age--">Decrease age</button> -->
+
+        <div v-if="showBooks">
+            <button @click="age++">Increase age</button>
+            <button @click="age--">Decrease age</button>
+    
+            <button @click="title = 'something else'">Change Title</button>
+    
+            <button @click="changeTitle('Custom Title')">Change title using function</button>
+            <!-- <a v-bind:href="url" target="_blank">Google.com</a> -->
+            <a :href="url" target="_blank">Google.com</a>
+        </div>
+
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Content</span>
+            <span v-else>Show Content</span>
+        </button> 
+        <div v-show="showBooks">Currently Showing Content</div> 
+
+        <div class="box" @mouseover="handleEvent($event, 5)">Mouseover</div>
+        <div class="box" @mouseleave="handleEvent">Mouseleave</div>
+        <div class="box" @dblclick="handleEvent">Double click</div>
+        <div class="box"></div>
+
+        <!-- <div v-for="book in books">
+            <h3>{{book.title}}</h3>
+            <h3>{{book.age}}</h3>
+            <img :src="book.img" :alt="book.title">
+            <br>
+        </div> -->
+
+        <div v-for="book in books">
+            <h3>{{book.title}}</h3>
+            <h3>{{book.age}}</h3>
+            <img :src="book.img" :alt="book.title">
+            <br>
+        </div>
+
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>
